@@ -9,7 +9,7 @@ void main() {
   runApp(MaterialApp(
     title: 'Flutter Demo',
     theme: ThemeData(
-      primarySwatch: Colors.purple,
+      primarySwatch: Colors.pink,
     ),
     home: const LoginView(),
   ));
