@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "915041923530",
+    "project_id": "noters-flutter",
+    "storage_bucket": "noters-flutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:915041923530:android:c5d360e180d4f2a8eddf33",
+        "android_client_info": {
+          "package_name": "com.chetankandala2023.noters"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "915041923530-hehiedeklqk7ojv8udj2lkbppqo0div0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnfGkeB8E58rGn4FWxwmB0CGL--XJ6-P4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "915041923530-hehiedeklqk7ojv8udj2lkbppqo0div0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "915041923530-av5bb585919j42lk9p8nthojdbd4hb21.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.chetankandala2023.noters"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
