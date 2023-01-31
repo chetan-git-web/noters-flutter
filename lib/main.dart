@@ -37,7 +37,7 @@ class Home extends StatelessWidget {
             final user = FirebaseAuth.instance.currentUser;
             if (user != null) {
               if (user.emailVerified) {
-                print("email verified");
+                return const MainView();
               } else {
                 return const VerifyEmail();
               }
@@ -45,7 +45,6 @@ class Home extends StatelessWidget {
               return const LoginView();
             }
 
-            return const Text("Done");
           // if (user?.emailVerified ?? false) {
           //   print("verified user");
           // } else {
@@ -58,6 +57,38 @@ class Home extends StatelessWidget {
             return const CircularProgressIndicator();
         }
       },
+    );
+  }
+}
+
+class MainView extends StatefulWidget {
+  const MainView({super.key});
+
+  @override
+  State<MainView> createState() => _MainViewState();
+}
+
+enum Menuaction { logout }
+
+class _MainViewState extends State<MainView> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Main Ui"),
+        actions: [
+          PopupMenuButton<Menuaction>(
+            onSelected: (value) {},
+            itemBuilder: (context) {
+              return const [
+                // ignore: prefer_const_constructors
+                PopupMenuItem<Menuaction>(
+                    value: Menuaction.logout, child: Text("Hello"))
+              ];
+            },
+          )
+        ],
+      ),
     );
   }
 }
