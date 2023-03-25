@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'dart:developer' as devtool show log;
 
 import 'package:noters/Routes/Routes.dart';
+import 'package:noters/errorhandling.dart';
 
 class RegistrationView extends StatefulWidget {
   const RegistrationView({super.key});
@@ -65,14 +66,21 @@ class _RegistrationViewstate extends State<RegistrationView> {
               try {
                 await FirebaseAuth.instance.createUserWithEmailAndPassword(
                     email: email, password: password);
+                Navigator.of(context).pushNamed(verifyemailview);
+                final user = FirebaseAuth.instance.currentUser;
+                user?.sendEmailVerification();
               } on FirebaseAuthException catch (e) {
                 if (e.code == 'weak-password') {
-                  devtool.log("Weak password");
+                  showErrorDialogue(context, e.toString());
                 } else if (e.code == 'email-already-in-use') {
-                  devtool.log("Email is already in use");
+                  showErrorDialogue(context, e.toString());
                 } else if (e.code == 'invalid-email') {
-                  devtool.log("Enter a valid email");
+                  showErrorDialogue(context, e.toString());
+                } else {
+                  showErrorDialogue(context, e.toString());
                 }
+              } catch (e) {
+                showErrorDialogue(context, e.toString());
               }
             },
             child: const Text("Register"),

@@ -19,7 +19,8 @@ void main() {
       loginview: (context) => const LoginView(),
       registerview: (context) => const RegistrationView(),
       homeview: (context) => const Home(),
-      mainview: (context) => const MainView()
+      mainview: (context) => const MainView(),
+      verifyemailview: (context) => const VerifyEmail(),
     },
   ));
 }
@@ -65,7 +66,6 @@ class Home extends StatelessWidget {
 
 class MainView extends StatefulWidget {
   const MainView({super.key});
-
   @override
   State<MainView> createState() => _MainViewState();
 }
