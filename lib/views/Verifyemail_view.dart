@@ -1,8 +1,6 @@
-// ignore_for_file: file_names
-
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:noters/Routes/Routes.dart';
+import 'package:noters/services/auth/auth_service.dart';
 
 class VerifyEmail extends StatefulWidget {
   const VerifyEmail({super.key});
@@ -24,13 +22,12 @@ class _VerifyEmailState extends State<VerifyEmail> {
           const Text("Click Here if email not send"),
           TextButton(
               onPressed: () async {
-                final user = FirebaseAuth.instance.currentUser;
-                await user?.sendEmailVerification();
+                await AuthService.firebase().currentUser;
               },
               child: const Text("Send Verification code")),
           TextButton(
               onPressed: () async {
-                await FirebaseAuth.instance.signOut();
+                await AuthService.firebase().logoutUser();
                 Navigator.of(context)
                     .pushNamedAndRemoveUntil(registerview, (route) => false);
               },
