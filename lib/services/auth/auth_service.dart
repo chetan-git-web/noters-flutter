@@ -5,6 +5,7 @@ import 'package:noters/services/auth/auth_user.dart';
 class AuthService implements AuthProvider {
   final AuthProvider provider;
   const AuthService(this.provider);
+
   factory AuthService.firebase() => AuthService(FirebaseAuthProvider());
 
   @override
